@@ -2,5 +2,50 @@
 
 :root {
   // Fonts
-  --font-family-main: 'Gilroy', serif;
+  --font-family-main: 'Gilroy-Regular', serif;
+  --font-family-bold: 'Girloy-Bold', serif;
+
+  // Fonts-size
+  --font-size-xxs: 12px;
+  --font-line-height-xxs: 20px;
+  --font-xxs: var(--font-size-xxs) / var(--font-line-height-xxs) var(--font-family-main);
+
+  --font-size-xs: 17px;
+  --font-line-height-xs: 25px;
+  --font-xs: var(--font-size-xs) / var(--font-line-height-xs) var(--font-family-main);
+
+  --font-size-s: 21px;
+  --font-line-height-s: 29px;
+  --font-s: var(--font-size-s) / var(--font-line-height-s) var(--font-family-main);
+
+  --font-size-m: 32px;
+  --font-line-height-m: 40px;
+  --font-m: var(--font-size-m) / var(--font-line-height-m) var(--font-family-main);
+
+  --font-size-l: 43px;
+  --font-line-height-l: 51px;
+  --font-l: var(--font-size-l) / var(--font-line-height-l) var(--font-family-main);
+
+  --font-size-xl: 60px;
+  --font-line-height-xl: 68px;
+  --font-xl: var(--font-size-xl) / var(--font-line-height-xl) var(--font-family-main);
+
+  --font-size-xxl: 73px;
+  --font-line-height-xxl: 81px;
+  --font-xxl: var(--font-size-xxl) / var(--font-line-height-xxl) var(--font-family-main);
+
+  // Colors
+  --color-bg: #FFF;
+  --color-primary: #000;
+  --color-secondary: #9F54FF;
+  --color-secondary-lt: #C190FF;
+  --color-third: #939393;
+  --color-third-dk: #8C8C8C;
+
+  --color-mandarin: #FF988A;
+  --color-green: #5EA892;
+  --color-orange: #F90;
+
+  // Transition:
+  --transition-duration: 100ms
 }

@@ -2,5 +2,8 @@
 @import 'variables/global';
 
 body {
-  font-family: Gilroy-Regular, serif;
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-s);
+  color: var(--color-primary);
+  background: var(--color-bg);
 }
