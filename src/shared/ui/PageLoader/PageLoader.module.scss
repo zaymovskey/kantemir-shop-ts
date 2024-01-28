@@ -1,5 +1,5 @@
 .PageLoader {
-  height: calc(100vh - var(--navbar-height));
+  height: calc(100vh - var(--size-navbar-height-with-padding) - calc(var(--size-page-loader-loader) * 2));
   display: flex;
   justify-content: center;
   align-items: center;

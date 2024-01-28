@@ -3,7 +3,36 @@
 
 body {
   font-family: var(--font-family-main);
-  font-size: var(--font-size-s);
+  font-size: var(--font-size-xxs);
   color: var(--color-primary);
   background: var(--color-bg);
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.content-page {
+  padding: var(--padding-main);
+  padding-top: var(--size-navbar-height-with-padding);
+}
+
+.hoverSvg {
+  & path {
+    transition-duration: var(--transition-duration);
+  }
+
+  &:hover {
+    & path {
+      fill: var(--color-secondary);
+    }
+  }
+}
+
+.hoverText {
+  transition-duration: var(--transition-duration);
+
+  &:hover {
+    color: var(--color-secondary);
+  }
 }

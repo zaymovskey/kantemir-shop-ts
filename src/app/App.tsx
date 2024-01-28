@@ -7,9 +7,9 @@ const App: FC = () => {
   return (
     <div className='app'>
       <Navbar />
-      <div className='content-page'>
+      <main className='content-page'>
         <AppRouter />
-      </div>
+      </main>
     </div>
   );
 };
