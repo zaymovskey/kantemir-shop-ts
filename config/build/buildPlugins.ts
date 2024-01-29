@@ -6,7 +6,8 @@ import { type IBuildOptions } from './types/config';
 
 export function buildPlugins({
   paths,
-  mode
+  mode,
+  apiUrl
 }: IBuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
     new webpack.ProgressPlugin(),
@@ -18,7 +19,8 @@ export function buildPlugins({
       chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     new webpack.DefinePlugin({
-      _IS_DEV_: JSON.stringify(mode === 'development')
+      _IS_DEV_: JSON.stringify(mode === 'development'),
+      _API_URL_: JSON.stringify(apiUrl)
     })
   ];
 

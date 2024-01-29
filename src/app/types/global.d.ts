@@ -9,3 +9,6 @@ declare module '*.svg' {
   const content: ElementType;
   export default content;
 }
+
+declare const _IS_DEV_: boolean;
+declare const _API_URL_: string;
