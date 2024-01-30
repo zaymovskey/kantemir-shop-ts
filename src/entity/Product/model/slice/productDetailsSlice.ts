@@ -19,6 +19,7 @@ export const productDetailsSlice = createSlice({
       })
       .addCase(fetchProductBySlug.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.data = action.payload;
       })
       .addCase(fetchProductBySlug.rejected, (state, action) => {
         state.isLoading = false;

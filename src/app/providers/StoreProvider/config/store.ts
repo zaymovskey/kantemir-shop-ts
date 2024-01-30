@@ -1,6 +1,6 @@
 import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit';
 import { type EnhancedStore } from '@reduxjs/toolkit/src/configureStore';
-import { $api } from 'shared/api/api';
+import { $api } from 'shared/api';
 import { type IReducerManager, type IStateScheme } from '../config/StateScheme';
 import { createReducerManager } from './reducerManager';
 

@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import './styles/index.scss';
-import { AppRouter } from 'app/providers/AppRouter';
 import { Navbar } from 'widgets';
+import { AppRouter } from './providers/AppRouter';
 
 const App: FC = () => {
   return (
