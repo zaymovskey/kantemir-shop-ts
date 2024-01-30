@@ -5,6 +5,10 @@ interface ISkeletonHOCProps {
   loading: boolean;
   skeleton: ReactNode;
 }
-export const SkeletonHOC: FC<ISkeletonHOCProps> = ({ children, loading, skeleton }) => {
+export const SkeletonHOC: FC<ISkeletonHOCProps> = ({
+  children,
+  loading = false,
+  skeleton
+}) => {
   return loading ? skeleton : children;
 };

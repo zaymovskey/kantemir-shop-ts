@@ -1,3 +1,9 @@
 .ProductDetails {
+  column-gap: 36px;
+  display: flex;
 
+  &__section {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
 }

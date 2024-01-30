@@ -7,13 +7,15 @@ interface ISkeletonProps {
   height?: string | number;
   width?: string | number;
   borderRadius?: string;
+  count?: number;
 }
 
 export const Skeleton: FC<ISkeletonProps> = ({
   className,
   height,
   width,
-  borderRadius = '2px'
+  borderRadius = '2px',
+  count = 1
 }) => {
   const styles: CSSProperties = {
     height,
@@ -21,7 +23,17 @@ export const Skeleton: FC<ISkeletonProps> = ({
     borderRadius
   };
 
+  const counts: number[] = Array.from(Array(count));
+
   return (
-    <div className={classNames(cls.Skeleton, {}, [className])} style={styles}></div>
+    <>
+      {counts.map((count) => (
+        <div
+          className={classNames(cls.Skeleton, {}, [className])}
+          style={styles}
+          key={`skeleton_${count}`}
+        ></div>
+      ))}
+    </>
   );
 };
