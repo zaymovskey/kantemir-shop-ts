@@ -3,6 +3,7 @@ import { useAppDispatch } from 'app/providers/StoreProvider';
 import { useAppSelector } from 'app/providers/StoreProvider/lib/hooks';
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader, type TypeReducersList } from 'shared/lib/components';
+import { SkeletonHOC } from 'shared/lib/components/SkeletonHOC/SkeletonHOC';
 import {
   getProductDetailsData,
   getProductDetailsError,
@@ -10,6 +11,8 @@ import {
 } from '../../model/selectors/productDetails';
 import { fetchProductBySlug } from '../../model/services/fetchProductBySlug/fetchProductBySlug';
 import { productDetailsReducer } from '../../model/slice/productDetailsSlice';
+import { ProductImageBlock } from '../ProductImageBlock/ProductImageBlock';
+import { ProductInfoBlock } from '../ProductInfoBlock/ProductInfoBlock';
 import cls from './ProductDetails.module.scss';
 
 interface IProductDetailsProps {
@@ -27,15 +30,24 @@ export const ProductDetails: FC<IProductDetailsProps> = ({ className, slug }) =>
   const product = useAppSelector(getProductDetailsData);
   const error = useAppSelector(getProductDetailsError);
 
-  console.log(error);
-
   useEffect(() => {
     dispatch(fetchProductBySlug(slug));
   }, [dispatch, slug]);
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div className={classNames(cls.ProductDetails, {}, [className])}>Продукт</div>
+    <DynamicModuleLoader reducers={reducers}>
+      <div className={classNames(cls.ProductDetails, {}, [className])}>
+        <section className={cls.ProductDetails__section}>
+          <SkeletonHOC loading={Boolean(isLoading)} skeleton={<>Загрузка</>}>
+            <ProductImageBlock />
+          </SkeletonHOC>
+        </section>
+        <section className={cls.ProductDetails__section}>
+          <SkeletonHOC loading={Boolean(isLoading)} skeleton={<>Загрузка</>}>
+            <ProductInfoBlock />
+          </SkeletonHOC>
+        </section>
+      </div>
     </DynamicModuleLoader>
   );
 };
