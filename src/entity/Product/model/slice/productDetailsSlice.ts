@@ -23,6 +23,7 @@ export const productDetailsSlice = createSlice({
       })
       .addCase(fetchProductBySlug.rejected, (state, action) => {
         state.isLoading = false;
+        state.error = action.payload;
       });
   }
 });

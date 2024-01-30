@@ -34,4 +34,4 @@ export function createReduxStore(initialState?: IStateScheme): IMyEnhancedStore 
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
-export type RootState = ReturnType<typeof createReduxStore>['getState'];
+export type AppState = ReturnType<ReturnType<typeof createReduxStore>['getState']>;

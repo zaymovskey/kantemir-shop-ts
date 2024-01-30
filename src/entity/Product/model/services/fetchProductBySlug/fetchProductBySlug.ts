@@ -1,6 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { type AxiosError } from 'axios';
 import { type IProduct } from 'entity/Product';
 import { type IThunkExtraArg } from 'app/providers/StoreProvider';
+import { type IAxiosError } from 'shared/api';
 
 export const fetchProductBySlug = createAsyncThunk<
   IProduct,
@@ -15,13 +17,16 @@ export const fetchProductBySlug = createAsyncThunk<
       );
 
       if (response.data === null) {
-        throw new Error();
+        throw new Error('empty data');
       }
 
       return response.data;
-    } catch (e) {
-      console.log(e);
-      return rejectWithValue('error');
+    } catch (_err) {
+      const error = _err as AxiosError<IAxiosError>;
+      if (error.response == null) {
+        throw _err;
+      }
+      return rejectWithValue(error.response.data.detail);
     }
   }
 );
