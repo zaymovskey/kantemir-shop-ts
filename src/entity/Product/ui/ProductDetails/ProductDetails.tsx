@@ -25,7 +25,7 @@ export const ProductDetails: FC<IProductDetailsProps> = ({ className, slug }) =>
   }, [dispatch, slug]);
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <div className={classNames(cls.ProductDetails, {}, [className])}>
         <ProductImageBlock className={cls.ProductDetails__section} />
         <ProductInfoBlock className={cls.ProductDetails__section} />
