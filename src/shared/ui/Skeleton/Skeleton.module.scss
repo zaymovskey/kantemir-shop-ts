@@ -1,0 +1,26 @@
+.Skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-skeleton-bg);
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 80%;
+    background: linear-gradient(to right, transparent 0%, var(--color-skeleton-gradient-bg) 50%, transparent 100%);
+    animation: load 1.3s cubic-bezier(.25, .1, .25, 1) infinite;
+  }
+}
+
+@keyframes load {
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 100%;
+  }
+}
