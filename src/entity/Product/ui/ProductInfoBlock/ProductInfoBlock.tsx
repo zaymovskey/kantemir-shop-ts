@@ -24,16 +24,36 @@ export const ProductInfoBlock: FC<IProductInfoBlockProps> = ({ className }) => {
       <div className={cls.productInfoWrapper}>
         <SkeletonHOC
           loading={Boolean(isLoading)}
-          skeleton={<Skeleton count={2} width={'100%'} height={800} />}
+          skeleton={<Skeleton height={44} width={140} />}
         >
           <Text tagName={'h1'} size={EnumTextSize.L} type={EnumTextType.TITLE}>
             {product?.name}
           </Text>
+        </SkeletonHOC>
+        <SkeletonHOC
+          loading={Boolean(isLoading)}
+          skeleton={<Skeleton height={32} width={60} />}
+        >
           <Text tagName={'data'} size={EnumTextSize.S}>
             {product?.price.toString() + '₽'}
           </Text>
+        </SkeletonHOC>
+        <SkeletonHOC
+          loading={Boolean(isLoading)}
+          skeleton={<Skeleton height={100} width={500} />}
+        >
           <ProductSizeSelector />
+        </SkeletonHOC>
+        <SkeletonHOC
+          loading={Boolean(isLoading)}
+          skeleton={<Skeleton height={40} width={135} />}
+        >
           <Button className={cls.addToCartButton}>В корзину</Button>
+        </SkeletonHOC>
+        <SkeletonHOC
+          loading={Boolean(isLoading)}
+          skeleton={<Skeleton height={150} width={550} />}
+        >
           <Text size={EnumTextSize.XS} modes={[EnumTextMode.BOLD]}>
             {product?.description}
           </Text>
