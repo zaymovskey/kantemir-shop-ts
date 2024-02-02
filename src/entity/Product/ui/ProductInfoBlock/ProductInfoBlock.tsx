@@ -30,6 +30,7 @@ export const ProductInfoBlock: FC<IProductInfoBlockProps> = ({ className }) => {
             {product?.name}
           </Text>
         </SkeletonHOC>
+
         <SkeletonHOC
           loading={Boolean(isLoading)}
           skeleton={<Skeleton height={32} width={60} />}
@@ -38,18 +39,21 @@ export const ProductInfoBlock: FC<IProductInfoBlockProps> = ({ className }) => {
             {product?.price.toString() + '₽'}
           </Text>
         </SkeletonHOC>
+
         <SkeletonHOC
           loading={Boolean(isLoading)}
           skeleton={<Skeleton height={100} width={500} />}
         >
           <ProductSizeSelector />
         </SkeletonHOC>
+
         <SkeletonHOC
           loading={Boolean(isLoading)}
           skeleton={<Skeleton height={40} width={135} />}
         >
           <Button className={cls.addToCartButton}>В корзину</Button>
         </SkeletonHOC>
+
         <SkeletonHOC
           loading={Boolean(isLoading)}
           skeleton={<Skeleton height={150} width={550} />}
