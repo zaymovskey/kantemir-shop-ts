@@ -1,9 +1,9 @@
+import { type FC } from 'react';
+import { classNames } from 'shared/lib';
 import {
   EnumProductSizeElementSize,
   ProductSizeElement
-} from 'entity/Product/ui/ProductSizeElement/ProductSizeElement';
-import { type FC } from 'react';
-import { classNames } from 'shared/lib';
+} from '../ProductSizeElement/ProductSizeElement';
 import cls from './ProductSizeSelector.module.scss';
 
 interface IProductSizeSelectorProps {

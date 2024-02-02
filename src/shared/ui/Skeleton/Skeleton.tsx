@@ -23,7 +23,7 @@ export const Skeleton: FC<ISkeletonProps> = ({
     borderRadius
   };
 
-  const counts: number[] = Array.from(Array(count));
+  const counts: number[] = Array.from(Array(count).keys());
 
   return (
     <>

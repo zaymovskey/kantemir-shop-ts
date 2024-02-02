@@ -9,6 +9,11 @@ export enum EnumTextType {
   TITLE = 'title'
 }
 
+export enum EnumTextMode {
+  UPPER = 'upper',
+  BOLD = 'bold'
+}
+
 export enum EnumTextSize {
   XXS = 'size-xxs',
   XS = 'size-xs',
@@ -25,6 +30,7 @@ export interface ITextProps {
   size?: EnumTextSize;
   tagName?: keyof IntrinsicElements;
   children?: string;
+  modes?: EnumTextMode[];
 }
 
 export const Text: FC<ITextProps> = ({
@@ -32,10 +38,17 @@ export const Text: FC<ITextProps> = ({
   children: childrenText,
   type = EnumTextType.TEXT,
   size = EnumTextSize.XXS,
-  tagName: TagName = 'p'
+  tagName: TagName = 'p',
+  modes = []
 }) => {
+  const additional: string[] = [
+    cls[type],
+    cls[size],
+    ...modes.map((mode) => cls[mode])
+  ];
+
   return (
-    <TagName className={classNames(cls.Text, {}, [className, cls[type], cls[size]])}>
+    <TagName className={classNames(cls.Text, {}, [className, ...additional])}>
       {childrenText}
     </TagName>
   );

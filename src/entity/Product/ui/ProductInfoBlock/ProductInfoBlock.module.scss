@@ -1,3 +1,14 @@
 .ProductInfoBlock {
+  position: relative;
+}
 
+.productInfoWrapper {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+}
+
+.addToCartButton {
+  align-self: start;
 }
