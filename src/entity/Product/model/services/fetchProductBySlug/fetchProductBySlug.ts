@@ -3,6 +3,7 @@ import { type AxiosError } from 'axios';
 import { type IProduct } from 'entity/Product';
 import { type IThunkExtraArg } from 'app/providers/StoreProvider';
 import { type IAxiosError } from 'shared/api';
+import { API_METHODS } from 'shared/api/api';
 
 export const fetchProductBySlug = createAsyncThunk<
   IProduct,
@@ -10,10 +11,10 @@ export const fetchProductBySlug = createAsyncThunk<
   { rejectValue: string; extra: IThunkExtraArg }
 >(
   'productDetails/fetchProductBySlug',
-  async (productId, { extra, rejectWithValue }) => {
+  async (productSlug, { extra, rejectWithValue }) => {
     try {
       const response = await extra.api.get<IProduct>(
-        `/catalog/productDetail/${productId}/`
+        API_METHODS.catalog.productDetail(productSlug)
       );
 
       if (response.data === null) {

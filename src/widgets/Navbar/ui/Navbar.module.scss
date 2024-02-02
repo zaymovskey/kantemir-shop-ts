@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   padding: var(--padding-main);
-  gap: 10px;
+  row-gap: 10px;
 }
 
 .topNav {
@@ -48,7 +48,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: var(--color-primary);
+      background-color: var(--color-primary);
       transform: translateX(90%) translateY(-75%);
       color: var(--color-bg);
       border-radius: 50%;
@@ -64,7 +64,7 @@
       }
 
       .topNav__cartCounter {
-        background: var(--color-secondary);
+        background-color: var(--color-secondary);
       }
     }
   }

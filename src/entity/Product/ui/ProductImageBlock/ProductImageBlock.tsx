@@ -21,12 +21,9 @@ export const ProductImageBlock: FC<IProductImageBlockProps> = ({ className }) =>
         loading={Boolean(isLoading)}
         skeleton={<Skeleton count={2} width={'100%'} height={800} />}
       >
-        {product?.images.map((image, index) => (
+        {product?.images.map(({ image: imagePath }, index) => (
           <div key={index}>
-            <img
-              src='https://img.joomcdn.net/c2ef9d5f7f0a624bec7eec1bc4baa61f99dbe345_original.jpeg'
-              alt=''
-            />
+            <img src={`${_API_URL_}${imagePath}`} alt='Продукт' />
           </div>
         ))}
       </SkeletonHOC>
