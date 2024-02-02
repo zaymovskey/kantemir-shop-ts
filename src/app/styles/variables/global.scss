@@ -59,5 +59,9 @@
   // Sizes
   --navbar-height: 114px;
   --size-navbar-height-with-padding: calc(var(--navbar-height) + 20px);
-  --size-page-loader-loader: 80px
+  --size-page-loader-loader: 80px;
+
+  // Z-indexes
+  --z-index-navbar: 2;
+  --z-index-skeleton: 1;
 }
