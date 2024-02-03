@@ -3,12 +3,19 @@
 }
 
 .productInfoWrapper {
-  position: fixed;
+  position: sticky;
+  top: var(--size-navbar-height-with-padding);
   display: flex;
+  left: 0;
   flex-direction: column;
   row-gap: 18px;
 }
 
 .addToCartButton {
   align-self: start;
+}
+
+.right {
+  display: flex;
+  justify-content: right;
 }

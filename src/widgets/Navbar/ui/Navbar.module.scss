@@ -48,7 +48,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: var(--color-primary);
+      background-color: var(--color-black);
       transform: translateX(90%) translateY(-75%);
       color: var(--color-bg);
       border-radius: 50%;
@@ -60,11 +60,11 @@
 
     &:hover {
       path {
-        fill: var(--color-secondary);
+        fill: var(--color-purple);
       }
 
       .topNav__cartCounter {
-        background-color: var(--color-secondary);
+        background-color: var(--color-purple);
       }
     }
   }

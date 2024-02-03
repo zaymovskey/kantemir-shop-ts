@@ -4,6 +4,7 @@ import { useAppSelector } from 'app/providers/StoreProvider/lib/hooks';
 import { classNames } from 'shared/lib';
 import { SkeletonHOC } from 'shared/lib/components/SkeletonHOC/SkeletonHOC';
 import { Skeleton } from 'shared/ui';
+import { BackButton } from 'shared/ui/BackButton/BackButton';
 import { Button } from 'shared/ui/Button/Button';
 import { EnumTextMode, EnumTextSize, EnumTextType, Text } from 'shared/ui/Text/Text';
 import {
@@ -62,6 +63,10 @@ export const ProductInfoBlock: FC<IProductInfoBlockProps> = ({ className }) => {
             {product?.description}
           </Text>
         </SkeletonHOC>
+
+        <div className={cls.right}>
+          <BackButton />
+        </div>
       </div>
     </section>
   );

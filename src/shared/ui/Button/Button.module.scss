@@ -12,12 +12,12 @@
 }
 
 .primary {
-  background-color: var(--color-secondary);
+  background-color: var(--color-purple);
   color: var(--color-bg);
   transition-duration: var(--transition-duration);
 
   &:hover {
-    background-color: var(--color-secondary-lt);
+    background-color: var(--color-purple-lt);
   }
 }
 

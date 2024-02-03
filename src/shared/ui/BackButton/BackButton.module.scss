@@ -1,0 +1,27 @@
+.BackButton {
+  display: flex;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: var(--color-grey);
+  user-select: none;
+  cursor: pointer;
+  align-items: center;
+
+  & svg {
+    & path {
+      fill: var(--color-grey);
+    }
+
+    transform: scale(-1, 1);
+  }
+
+  &:hover {
+    transition-duration: var(--transition-duration);
+    color: var(--color-purple-lt);
+
+    & svg path {
+      transition-duration: var(--transition-duration);
+      fill: var(--color-purple-lt);
+    }
+  }
+}

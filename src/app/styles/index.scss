@@ -4,7 +4,7 @@
 body {
   font-family: var(--font-family-main);
   font-size: var(--font-size-xxs);
-  color: var(--color-primary);
+  color: var(--color-black);
   background-color: var(--color-bg);
 }
 
@@ -24,7 +24,7 @@ body {
 
   &:hover {
     & path {
-      fill: var(--color-secondary);
+      fill: var(--color-purple);
     }
   }
 }
@@ -33,6 +33,6 @@ body {
   transition-duration: var(--transition-duration);
 
   &:hover {
-    color: var(--color-secondary);
+    color: var(--color-purple);
   }
 }
