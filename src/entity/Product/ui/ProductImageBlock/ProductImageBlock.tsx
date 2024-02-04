@@ -23,7 +23,7 @@ export const ProductImageBlock: FC<IProductImageBlockProps> = ({ className }) =>
       >
         {product?.images.map(({ image: imagePath }, index) => (
           <div key={index}>
-            <img src={`${_API_URL_}${imagePath}`} alt='Продукт' />
+            <img src={`${_API_URL_}${imagePath}`} alt={`Фото товара ${index + 1}`} />
           </div>
         ))}
       </SkeletonHOC>

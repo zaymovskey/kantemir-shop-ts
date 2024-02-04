@@ -1,5 +1,17 @@
-import { DynamicModuleLoader, type TypeReducersList } from 'shared/lib/components';
-import { SkeletonHOC } from 'shared/lib/components/SkeletonHOC/SkeletonHOC';
+import { capitalizeFirstLetter } from './capitalizeFirstLetter/capitalizeFirstLetter';
 import { classNames } from './classNames/classNames';
+import {
+  DynamicModuleLoader,
+  type TypeReducersList
+} from './components/DynamicModuleLoader/DynamicModuleLoader';
+import { SkeletonHOC } from './components/SkeletonHOC/SkeletonHOC';
+import { tabTitle } from './tabTitle/tabTitle';
 
-export { classNames, DynamicModuleLoader, type TypeReducersList, SkeletonHOC };
+export {
+  classNames,
+  DynamicModuleLoader,
+  type TypeReducersList,
+  SkeletonHOC,
+  tabTitle,
+  capitalizeFirstLetter
+};
