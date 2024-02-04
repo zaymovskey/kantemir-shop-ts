@@ -1,4 +1,5 @@
 import { type FC } from 'react';
+import { Link } from 'react-router-dom';
 import {
   LogoIcon,
   ILoveUIcon,
@@ -26,19 +27,27 @@ export const Footer: FC<IFooterProps> = ({ className }) => {
       <div className={cls.Footer__item}>
         <ul className={cls.Footer__iconsList}>
           <li className={cls.Footer__iconsListItem}>
-            <a href='#' className={cls.Footer__iconsListItem}>
+            <Link
+              to={'/'}
+              className={cls.Footer__iconsListItem}
+              aria-label={'Инстаграм'}
+            >
               <InstagramIcon />
-            </a>
+            </Link>
           </li>
           <li className={cls.Footer__iconsListItem}>
-            <a href='#' className={cls.Footer__iconsListItem}>
+            <Link to={'/'} className={cls.Footer__iconsListItem} aria-label={'Вотсап'}>
               <WhatsappIcon />
-            </a>
+            </Link>
           </li>
           <li className={cls.Footer__iconsListItem}>
-            <a href='#' className={cls.Footer__iconsListItem}>
+            <Link
+              to={'/'}
+              className={cls.Footer__iconsListItem}
+              aria-label={'Телеграм'}
+            >
               <TelegramIcon />
-            </a>
+            </Link>
           </li>
         </ul>
         <div>
