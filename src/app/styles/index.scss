@@ -21,6 +21,8 @@ main {
 .content-page {
   padding: var(--padding-main);
   padding-top: var(--size-navbar-height-with-padding);
+  display: flex;
+  flex-direction: column;
 }
 
 .hoverSvg {
