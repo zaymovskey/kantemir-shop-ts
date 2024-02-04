@@ -3,11 +3,12 @@ import {
   type IThunkExtraArg,
   type ReduxStoreWithManager
 } from './config/StateScheme';
-import { useAppDispatch } from './lib/hooks';
+import { useAppDispatch, useAppSelector } from './lib/hooks';
 
 export {
   type IStateScheme,
   type IThunkExtraArg,
   type ReduxStoreWithManager,
-  useAppDispatch
+  useAppDispatch,
+  useAppSelector
 };

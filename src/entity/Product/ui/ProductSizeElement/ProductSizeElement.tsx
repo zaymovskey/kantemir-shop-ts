@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib';
 import cls from './ProductSizeElement.module.scss';
 
 export enum EnumProductSizeElementSize {

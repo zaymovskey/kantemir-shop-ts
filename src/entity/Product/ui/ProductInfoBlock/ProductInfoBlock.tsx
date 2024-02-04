@@ -1,16 +1,20 @@
-import { ProductSizeSelector } from 'entity/Product/ui/ProductSizeSelector/ProductSizeSelector';
 import { type FC } from 'react';
-import { useAppSelector } from 'app/providers/StoreProvider/lib/hooks';
-import { classNames } from 'shared/lib';
-import { SkeletonHOC } from 'shared/lib/components/SkeletonHOC/SkeletonHOC';
-import { Skeleton } from 'shared/ui';
-import { BackButton } from 'shared/ui/BackButton/BackButton';
-import { Button } from 'shared/ui/Button/Button';
-import { EnumTextMode, EnumTextSize, EnumTextType, Text } from 'shared/ui/Text/Text';
+import { useAppSelector } from 'app/providers/StoreProvider';
+import { classNames, SkeletonHOC } from 'shared/lib';
+import {
+  Skeleton,
+  BackButton,
+  Button,
+  EnumTextMode,
+  EnumTextSize,
+  EnumTextType,
+  Text
+} from 'shared/ui';
 import {
   getProductDetailsData,
   getProductDetailsIsLoading
 } from '../../model/selectors/productDetails';
+import { ProductSizeSelector } from '../ProductSizeSelector/ProductSizeSelector';
 import cls from './ProductInfoBlock.module.scss';
 
 interface IProductInfoBlockProps {
