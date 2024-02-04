@@ -7,12 +7,11 @@ import { capitalizeFirstLetter, tabTitle } from 'shared/lib';
 const ProductDetailsPage: FC = () => {
   const { slug } = useParams<{ slug: string }>();
 
-  tabTitle(capitalizeFirstLetter(`${slug}`));
-
   if (slug == null) {
     return <ProductNotFound />;
   }
 
+  tabTitle(capitalizeFirstLetter(`${slug}`));
   return <ProductDetails slug={slug} />;
 };
 
