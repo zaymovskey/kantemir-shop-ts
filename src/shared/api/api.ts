@@ -6,7 +6,11 @@ export interface IAxiosError {
 
 export const API_METHODS = {
   catalog: {
-    productDetail: (productSlug: string) => `/api/catalog/productDetail/${productSlug}/`
+    productDetail: (productSlug: string) =>
+      `/api/catalog/productDetail/${productSlug}/`,
+
+    productList: (offset: number = 0, limit: number = 0) =>
+      `/api/catalog/productList/${offset}/${limit}`
   }
 };
 

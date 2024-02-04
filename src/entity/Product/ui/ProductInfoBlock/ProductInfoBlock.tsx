@@ -65,7 +65,12 @@ export const ProductInfoBlock: FC<IProductInfoBlockProps> = ({ className }) => {
         </SkeletonHOC>
 
         <div className={cls.right}>
-          <BackButton />
+          <SkeletonHOC
+            loading={Boolean(isLoading)}
+            skeleton={<Skeleton height={48} width={160} />}
+          >
+            <BackButton />
+          </SkeletonHOC>
         </div>
       </div>
     </section>
