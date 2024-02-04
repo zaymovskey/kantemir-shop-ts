@@ -4,8 +4,8 @@
   display: flex;
   background-color: var(--color-black);
   padding: var(--padding-main);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 13px;
+  padding-bottom: 13px;
 
   &__item {
     display: flex;
@@ -16,6 +16,8 @@
   }
 
   &__item:nth-child(2) {
+    gap: 10px;
+
     .FooterLogo {
       & path {
         fill: var(--color-white);
@@ -25,10 +27,11 @@
 
   &__item:nth-child(3) {
     align-items: end;
+    gap: 10px;
 
     .Footer__iconsList {
       display: flex;
-      gap: 5px;
+      gap: 7px;
 
       &Item {
         display: flex;
@@ -38,7 +41,7 @@
         &:hover {
           & path {
             transition-duration: var(--transition-duration);
-            fill: var(--color-purple);
+            fill: var(--color-purple-lt);
           }
         }
       }
