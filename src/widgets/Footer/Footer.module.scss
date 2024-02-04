@@ -1,0 +1,59 @@
+.Footer {
+  justify-content: space-between;
+  color: var(--color-white);
+  display: flex;
+  background-color: var(--color-black);
+  padding: var(--padding-main);
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+
+  &__item:nth-child(2) {
+    .FooterLogo {
+      & path {
+        fill: var(--color-white);
+      }
+    }
+  }
+
+  &__item:nth-child(3) {
+    align-items: end;
+
+    .Footer__iconsList {
+      display: flex;
+      gap: 5px;
+
+      &Item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          & path {
+            transition-duration: var(--transition-duration);
+            fill: var(--color-purple);
+          }
+        }
+      }
+    }
+
+    & .Footer__itemText {
+      display: flex;
+      justify-content: end;
+    }
+
+    & svg {
+      --footer-third-item-icons-size: 31px;
+
+      width: var(--footer-third-item-icons-size);
+      height: var(--footer-third-item-icons-size);
+    }
+  }
+}
