@@ -23,6 +23,7 @@ main {
   padding-top: var(--size-navbar-height-with-padding);
   display: flex;
   flex-direction: column;
+  padding-bottom: var(--padding-top-bottom-main);
 }
 
 .hoverSvg {
