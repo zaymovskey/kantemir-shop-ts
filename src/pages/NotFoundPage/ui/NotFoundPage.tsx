@@ -1,6 +1,6 @@
 import { type FC } from 'react';
-import { tabTitle } from 'shared/lib';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useSetTabTitle } from 'shared/lib/hooks';
 import cls from './NotFoundPage.module.scss';
 
 interface INotFoundPageProps {
@@ -8,7 +8,7 @@ interface INotFoundPageProps {
 }
 
 const NotFoundPage: FC<INotFoundPageProps> = ({ className }) => {
-  tabTitle('Страница не найдена');
+  useSetTabTitle('Страница не найдена');
   return (
     <div className={classNames(cls.NotFoundPage, {}, [className])}>
       Страница не найдена

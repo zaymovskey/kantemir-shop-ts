@@ -1,17 +1,6 @@
 import { capitalizeFirstLetter } from './capitalizeFirstLetter/capitalizeFirstLetter';
 import { classNames } from './classNames/classNames';
-import {
-  DynamicModuleLoader,
-  type TypeReducersList
-} from './components/DynamicModuleLoader/DynamicModuleLoader';
 import { SkeletonHOC } from './components/SkeletonHOC/SkeletonHOC';
-import { tabTitle } from './tabTitle/tabTitle';
+import { setTabTitle } from './setTabTitle/setTabTitle';
 
-export {
-  classNames,
-  DynamicModuleLoader,
-  type TypeReducersList,
-  SkeletonHOC,
-  tabTitle,
-  capitalizeFirstLetter
-};
+export { classNames, SkeletonHOC, capitalizeFirstLetter, setTabTitle };

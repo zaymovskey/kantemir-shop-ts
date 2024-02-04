@@ -1,8 +1,9 @@
 import { type FC } from 'react';
-import { tabTitle } from 'shared/lib';
+import { useSetTabTitle } from 'shared/lib/hooks';
 
 const MainPage: FC = () => {
-  tabTitle('Главная');
+  useSetTabTitle('Главная');
+
   return <div>Главная</div>;
 };
 
