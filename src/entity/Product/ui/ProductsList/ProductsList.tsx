@@ -1,5 +1,6 @@
 import { type FC } from 'react';
-import { classNames } from 'shared/lib';
+import { classNames, SkeletonHOC } from 'shared/lib';
+import { Skeleton } from 'shared/ui';
 import { type IProduct } from '../../model/types/Product';
 import { ProductsListItem } from '../ProductsListItem/ProductsListItem';
 import cls from './ProductsList.module.scss';
@@ -14,7 +15,13 @@ export const ProductsList: FC<IProductsListProps> = ({ className, products }) =>
   return (
     <div className={classNames(cls.ProductsList, {}, [className])}>
       {fdsaf?.map((product, index) => (
-        <ProductsListItem key={`productListItem_${index}`} />
+        <SkeletonHOC
+          key={`productListItem_${index}`}
+          loading={false}
+          skeleton={<Skeleton width={'100%'} height={400} />}
+        >
+          <ProductsListItem />
+        </SkeletonHOC>
       ))}
     </div>
   );
