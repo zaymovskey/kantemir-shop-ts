@@ -1,10 +1,11 @@
 import type { Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit';
 import { type EnhancedStore } from '@reduxjs/toolkit/src/configureStore';
 import { type AxiosInstance } from 'axios';
-import { type IProductDetailsScheme } from 'entity/Product/model/types/ProductDetailsScheme';
+import { type IProductDetailsScheme, type IProductsListScheme } from 'entity/Product';
 export interface IStateScheme {
   // Async reducers
   productDetails?: IProductDetailsScheme;
+  productsList?: IProductsListScheme;
 }
 
 export interface IReducerManager {

@@ -13,12 +13,12 @@ interface IProductImageBlockProps {
 }
 
 export const ProductImageBlock: FC<IProductImageBlockProps> = ({ className }) => {
-  const isLoading = useAppSelector(getProductDetailsIsLoading);
+  const productIsLoading = useAppSelector(getProductDetailsIsLoading);
   const product = useAppSelector(getProductDetailsData);
   return (
     <section className={classNames(cls.ProductImageBlock, {}, [className])}>
       <SkeletonHOC
-        loading={Boolean(isLoading)}
+        loading={Boolean(productIsLoading)}
         skeleton={<Skeleton count={2} width={'100%'} height={800} />}
       >
         {product?.images.map(({ image: imagePath }, index) => (

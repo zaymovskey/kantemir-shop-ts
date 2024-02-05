@@ -1,13 +1,27 @@
-import { ProductsList } from 'entity/Product/ui/ProductsList/ProductsList';
-import { ProductsListItem } from 'entity/Product/ui/ProductsListItem/ProductsListItem';
-import { productDetailsReducer } from './model/slice/productDetailsSlice';
+import {
+  getProductsListError,
+  getProductsListIsLoading
+} from './model/selectors/productsList';
+import { fetchProducts } from './model/services/fetchProducts/fetchProducts';
+import { productDetailsReducer } from './model/slices/productDetailsSlice';
+import { productsListReducer } from './model/slices/productsListSlice';
 import { type IProduct } from './model/types/Product';
+import { type IProductDetailsScheme } from './model/types/ProductDetailsScheme';
+import { type IProductsListScheme } from './model/types/ProductsListScheme';
 import { ProductDetails } from './ui/ProductDetails/ProductDetails';
+import { ProductsList } from './ui/ProductsList/ProductsList';
+import { ProductsListItem } from './ui/ProductsListItem/ProductsListItem';
 
 export {
   ProductDetails,
   ProductsListItem,
   ProductsList,
   type IProduct,
-  productDetailsReducer
+  productDetailsReducer,
+  type IProductDetailsScheme,
+  type IProductsListScheme,
+  productsListReducer,
+  getProductsListIsLoading,
+  getProductsListError,
+  fetchProducts
 };

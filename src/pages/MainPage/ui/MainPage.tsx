@@ -1,14 +1,21 @@
-import { ProductsList } from 'entity/Product';
+import { ProductsList, productsListReducer } from 'entity/Product';
 import { type FC } from 'react';
+import { DynamicModuleLoader, type TypeReducersList } from 'shared/lib/components';
 import { useSetTabTitle } from 'shared/lib/hooks';
+
+const reducers: TypeReducersList = {
+  productsList: productsListReducer
+};
 
 const MainPage: FC = () => {
   useSetTabTitle('Главная');
 
   return (
-    <div>
-      <ProductsList />
-    </div>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <div>
+        <ProductsList />
+      </div>
+    </DynamicModuleLoader>
   );
 };
 

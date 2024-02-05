@@ -9,7 +9,7 @@ const initialState: IProductDetailsScheme = {
 };
 
 export const productDetailsSlice = createSlice({
-  name: 'product',
+  name: 'productDetails',
   initialState,
   reducers: {},
   extraReducers: (builder) => {

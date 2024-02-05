@@ -1,26 +1,34 @@
-import { type FC } from 'react';
+import { ProductsListItem, fetchProducts } from 'entity/Product';
+import { getProductsListIsLoading } from 'entity/Product/model/selectors/productsList';
+import { getProducts } from 'entity/Product/model/slices/productsListSlice';
+import { type FC, useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { classNames, SkeletonHOC } from 'shared/lib';
 import { Skeleton } from 'shared/ui';
-import { type IProduct } from '../../model/types/Product';
-import { ProductsListItem } from '../ProductsListItem/ProductsListItem';
 import cls from './ProductsList.module.scss';
 
 interface IProductsListProps {
   className?: string;
-  products?: IProduct[];
 }
 
-export const ProductsList: FC<IProductsListProps> = ({ className, products }) => {
-  const fdsaf = [1, 2, 3, 4, 5];
+export const ProductsList: FC<IProductsListProps> = ({ className }) => {
+  const dispatch = useAppDispatch();
+  const products = useAppSelector(getProducts.selectAll);
+  const productsIsLoading = useAppSelector(getProductsListIsLoading);
+
+  useEffect(() => {
+    dispatch(fetchProducts({}));
+  }, [dispatch]);
+
   return (
     <div className={classNames(cls.ProductsList, {}, [className])}>
-      {fdsaf?.map((product, index) => (
+      {products?.map((product, index) => (
         <SkeletonHOC
           key={`productListItem_${index}`}
-          loading={false}
+          loading={Boolean(productsIsLoading)}
           skeleton={<Skeleton width={'100%'} height={400} />}
         >
-          <ProductsListItem />
+          <ProductsListItem product={product} />
         </SkeletonHOC>
       ))}
     </div>

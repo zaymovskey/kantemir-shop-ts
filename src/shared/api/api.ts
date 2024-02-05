@@ -10,7 +10,7 @@ export const API_METHODS = {
       `/api/catalog/productDetail/${productSlug}/`,
 
     productList: (offset: number = 0, limit: number = 0) =>
-      `/api/catalog/productList/${offset}/${limit}`
+      `/api/catalog/productList/${offset}/${limit}/`
   }
 };
 

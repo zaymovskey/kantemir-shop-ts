@@ -1,4 +1,5 @@
 export interface IProduct {
+  id: number;
   name: string;
   price: number;
   main_image: string;
@@ -6,7 +7,7 @@ export interface IProduct {
   category: IProductCategory;
   slug: string;
   images: IProductImage[];
-  sizes: IProductSize;
+  sizes: IProductSize[];
 }
 
 export interface IProductCategory {

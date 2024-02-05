@@ -1,9 +1,9 @@
+import { productDetailsReducer } from 'entity/Product/model/slices/productDetailsSlice';
 import { type FC, useEffect } from 'react';
 import { useAppDispatch } from 'app/providers/StoreProvider';
 import { classNames } from 'shared/lib';
 import { DynamicModuleLoader, type TypeReducersList } from 'shared/lib/components';
 import { fetchProductBySlug } from '../../model/services/fetchProductBySlug/fetchProductBySlug';
-import { productDetailsReducer } from '../../model/slice/productDetailsSlice';
 import { ProductImageBlock } from '../ProductImageBlock/ProductImageBlock';
 import { ProductInfoBlock } from '../ProductInfoBlock/ProductInfoBlock';
 import cls from './ProductDetails.module.scss';
