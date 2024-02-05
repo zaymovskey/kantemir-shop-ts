@@ -14,22 +14,24 @@ interface IProductsListProps {
 export const ProductsList: FC<IProductsListProps> = ({ className }) => {
   const dispatch = useAppDispatch();
   const products = useAppSelector(getProducts.selectAll);
-  const productsIsLoading = useAppSelector(getProductsListIsLoading);
+  const productsIsLoading = Boolean(useAppSelector(getProductsListIsLoading));
 
   useEffect(() => {
     dispatch(fetchProducts({}));
   }, [dispatch]);
 
+  if (productsIsLoading) {
+    return (
+      <div className={classNames(cls.ProductsList, {}, [className])}>
+        <Skeleton width={'100%'} height={400} count={8} />
+      </div>
+    );
+  }
+
   return (
     <div className={classNames(cls.ProductsList, {}, [className])}>
       {products?.map((product, index) => (
-        <SkeletonHOC
-          key={`productListItem_${index}`}
-          loading={Boolean(productsIsLoading)}
-          skeleton={<Skeleton width={'100%'} height={400} />}
-        >
-          <ProductsListItem product={product} />
-        </SkeletonHOC>
+        <ProductsListItem product={product} key={`productListItem_${index}`} />
       ))}
     </div>
   );

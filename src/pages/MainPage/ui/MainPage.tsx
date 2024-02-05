@@ -12,9 +12,7 @@ const MainPage: FC = () => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <div>
-        <ProductsList />
-      </div>
+      <ProductsList />
     </DynamicModuleLoader>
   );
 };
