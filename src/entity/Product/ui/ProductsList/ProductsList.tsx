@@ -3,7 +3,7 @@ import { getProductsListIsLoading } from 'entity/Product/model/selectors/product
 import { getProducts } from 'entity/Product/model/slices/productsListSlice';
 import { type FC, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
-import { classNames, SkeletonHOC } from 'shared/lib';
+import { classNames } from 'shared/lib';
 import { Skeleton } from 'shared/ui';
 import cls from './ProductsList.module.scss';
 
