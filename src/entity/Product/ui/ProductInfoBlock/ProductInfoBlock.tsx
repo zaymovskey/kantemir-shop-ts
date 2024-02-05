@@ -29,7 +29,7 @@ export const ProductInfoBlock: FC<IProductInfoBlockProps> = ({ className }) => {
       <div className={cls.productInfoWrapper}>
         <SkeletonHOC
           loading={productIsLoading}
-          skeleton={<Skeleton height={44} width={140} />}
+          skeleton={<Skeleton height={26} width={140} />}
         >
           <Text tagName={'h1'} size={EnumTextSize.L} type={EnumTextType.TITLE}>
             {product?.name}
@@ -38,9 +38,9 @@ export const ProductInfoBlock: FC<IProductInfoBlockProps> = ({ className }) => {
 
         <SkeletonHOC
           loading={productIsLoading}
-          skeleton={<Skeleton height={32} width={60} />}
+          skeleton={<Skeleton height={22} width={60} />}
         >
-          <Text tagName={'data'} size={EnumTextSize.S}>
+          <Text tagName={'data'} size={EnumTextSize.M}>
             {product?.price.toString() + '₽'}
           </Text>
         </SkeletonHOC>
