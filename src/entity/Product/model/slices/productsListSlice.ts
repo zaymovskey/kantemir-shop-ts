@@ -1,6 +1,6 @@
-import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { fetchProductsList } from 'entity/Product/model/services/fetchProductsList/fetchProductsList';
 import { type IStateScheme } from 'app/providers/StoreProvider';
-import { fetchProducts } from '../services/fetchProducts/fetchProducts';
 import { type IProduct } from '../types/Product';
 import { type IProductsListScheme } from '../types/ProductsListScheme';
 
@@ -16,19 +16,26 @@ const productsListSlice = createSlice({
     isLoading: false,
     ids: [],
     entities: {},
-    error: ''
+    error: '',
+    offset: 0,
+    limit: 3,
+    hasMore: true
   }),
-  reducers: {},
+  reducers: {
+    setOffset: (state, action: PayloadAction<number>) => {
+      state.offset = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchProducts.pending, (state, action) => {
+      .addCase(fetchProductsList.pending, (state, action) => {
         state.isLoading = true;
       })
-      .addCase(fetchProducts.fulfilled, (state, action) => {
+      .addCase(fetchProductsList.fulfilled, (state, action) => {
         state.isLoading = false;
         productsAdapter.setAll(state, action.payload);
       })
-      .addCase(fetchProducts.rejected, (state, action) => {
+      .addCase(fetchProductsList.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

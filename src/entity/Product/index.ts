@@ -1,8 +1,8 @@
+import { fetchProductsList } from 'entity/Product/model/services/fetchProductsList/fetchProductsList';
 import {
   getProductsListError,
   getProductsListIsLoading
 } from './model/selectors/productsList';
-import { fetchProducts } from './model/services/fetchProducts/fetchProducts';
 import { productDetailsReducer } from './model/slices/productDetailsSlice';
 import { productsListReducer } from './model/slices/productsListSlice';
 import { type IProduct } from './model/types/Product';
@@ -23,5 +23,5 @@ export {
   productsListReducer,
   getProductsListIsLoading,
   getProductsListError,
-  fetchProducts
+  fetchProductsList
 };

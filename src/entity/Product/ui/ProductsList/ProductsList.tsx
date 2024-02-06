@@ -1,9 +1,10 @@
-import { ProductsListItem, fetchProducts } from 'entity/Product';
+import { ProductsListItem, fetchProductsList } from 'entity/Product';
 import { getProductsListIsLoading } from 'entity/Product/model/selectors/productsList';
 import { getProducts } from 'entity/Product/model/slices/productsListSlice';
-import { type FC, useEffect } from 'react';
+import { type FC, type MutableRefObject, useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { classNames } from 'shared/lib';
+import { useInfiniteScroll } from 'shared/lib/hooks';
 import { Skeleton } from 'shared/ui';
 import cls from './ProductsList.module.scss';
 
@@ -17,22 +18,29 @@ export const ProductsList: FC<IProductsListProps> = ({ className }) => {
   const productsIsLoading = Boolean(useAppSelector(getProductsListIsLoading));
 
   useEffect(() => {
-    dispatch(fetchProducts({}));
+    dispatch(fetchProductsList({}));
   }, [dispatch]);
 
-  if (productsIsLoading) {
-    return (
-      <div className={classNames(cls.ProductsList, {}, [className])}>
-        <Skeleton width={'100%'} height={400} count={8} />
-      </div>
-    );
-  }
+  const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+  useInfiniteScroll({
+    callback: () => {
+      console.log('intersected');
+    },
+    triggerRef
+  });
 
   return (
     <div className={classNames(cls.ProductsList, {}, [className])}>
-      {products?.map((product, index) => (
-        <ProductsListItem product={product} key={`productListItem_${index}`} />
-      ))}
+      {productsIsLoading ? (
+        <div className={classNames(cls.ProductsList, {}, [className])}>
+          <Skeleton width={'100%'} height={400} count={8} />
+        </div>
+      ) : (
+        products?.map((product, index) => (
+          <ProductsListItem product={product} key={`productListItem_${index}`} />
+        ))
+      )}
+      <div ref={triggerRef} />
     </div>
   );
 };
