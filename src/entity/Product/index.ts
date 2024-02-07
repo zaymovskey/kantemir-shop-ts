@@ -1,14 +1,11 @@
-import { fetchProductsList } from 'entity/Product/model/services/fetchProductsList/fetchProductsList';
 import {
   getProductsListError,
   getProductsListIsLoading
 } from './model/selectors/productsList';
+import { fetchNextProductsListPart } from './model/services/fetchNextProductsListPart/fetchNextProductsListPart';
+import { fetchProductsList } from './model/services/fetchProductsList/fetchProductsList';
 import { productDetailsReducer } from './model/slices/productDetailsSlice';
-import {
-  getProducts,
-  productsListReducer,
-  productsListActions
-} from './model/slices/productsListSlice';
+import { getProducts, productsListReducer } from './model/slices/productsListSlice';
 import { type IProduct } from './model/types/Product';
 import { type IProductDetailsScheme } from './model/types/ProductDetailsScheme';
 import { type IProductsListScheme } from './model/types/ProductsListScheme';
@@ -30,5 +27,6 @@ export {
   getProductsListError,
   fetchProductsList,
   ProductNotFound,
-  getProducts
+  getProducts,
+  fetchNextProductsListPart
 };

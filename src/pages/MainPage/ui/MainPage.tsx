@@ -3,15 +3,9 @@ import {
   getProductsListIsLoading,
   ProductsList,
   productsListReducer,
-  getProducts
+  getProducts,
+  fetchNextProductsListPart
 } from 'entity/Product';
-import {
-  getProductsListHasMore,
-  getProductsListLimit,
-  getProductsListOffset
-} from 'entity/Product/model/selectors/productsList';
-import { fetchNextProductsListPart } from 'entity/Product/model/services/fetchNextProductsListPart/fetchNextProductsListPart';
-import { productsListActions } from 'entity/Product/model/slices/productsListSlice';
 import { type FC, type MutableRefObject, useCallback, useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { DynamicModuleLoader, type TypeReducersList } from 'shared/lib/components';

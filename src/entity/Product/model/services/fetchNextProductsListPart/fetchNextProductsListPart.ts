@@ -1,12 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchProductsList, getProductsListIsLoading } from 'entity/Product';
+import { type IThunkConfig } from 'app/providers/StoreProvider';
 import {
+  getProductsListIsLoading,
   getProductsListHasMore,
   getProductsListLimit,
   getProductsListOffset
-} from 'entity/Product/model/selectors/productsList';
-import { productsListActions } from 'entity/Product/model/slices/productsListSlice';
-import { type IThunkConfig } from 'app/providers/StoreProvider';
+} from '../../selectors/productsList';
+import { productsListActions } from '../../slices/productsListSlice';
+import { fetchProductsList } from '../fetchProductsList/fetchProductsList';
 
 export const fetchNextProductsListPart = createAsyncThunk<
   // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
