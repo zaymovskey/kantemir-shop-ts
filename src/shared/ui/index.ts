@@ -1,6 +1,7 @@
 import { SkeletonHOC } from '../lib/components/SkeletonHOC/SkeletonHOC';
 import { BackButton } from './BackButton/BackButton';
 import { Button } from './Button/Button';
+import { Img } from './Img/Img';
 import { Loader } from './Loader/Loader';
 import { PageLoader } from './PageLoader/PageLoader';
 import { Skeleton } from './Skeleton/Skeleton';
@@ -16,5 +17,6 @@ export {
   EnumTextSize,
   EnumTextType,
   Button,
-  BackButton
+  BackButton,
+  Img
 };
