@@ -1,7 +1,7 @@
 import { type FC } from 'react';
 import { useAppSelector } from 'app/providers/StoreProvider/lib/hooks';
 import { classNames } from 'shared/lib';
-import { Skeleton, SkeletonHOC } from 'shared/ui';
+import { Img, Skeleton, SkeletonHOC } from 'shared/ui';
 import {
   getProductDetailsData,
   getProductDetailsIsLoading
@@ -23,7 +23,11 @@ export const ProductImageBlock: FC<IProductImageBlockProps> = ({ className }) =>
       >
         {product?.images.map(({ image: imagePath }, index) => (
           <div key={`productPhoto_${index}`}>
-            <img src={`${_API_URL_}${imagePath}`} alt={`Фото товара ${index + 1}`} />
+            <Img
+              src={`${_API_URL_}${imagePath}`}
+              skeleton={<Skeleton count={2} width={'100%'} height={800} />}
+              alt={`Фото товара ${index + 1}`}
+            />
           </div>
         ))}
       </SkeletonHOC>

@@ -5,7 +5,6 @@ import {
   useEffect,
   useState
 } from 'react';
-import { Skeleton } from 'shared/ui';
 
 interface IImageProps extends ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
