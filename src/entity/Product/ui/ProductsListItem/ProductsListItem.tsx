@@ -1,4 +1,4 @@
-import { type FC, useEffect, useState } from 'react';
+import { type FC } from 'react';
 import { Link } from 'react-router-dom';
 import { classNames } from 'shared/lib';
 import { Img, Skeleton } from 'shared/ui';
@@ -14,16 +14,6 @@ export const ProductsListItem: FC<IProductsListItemProps> = ({
   className,
   product
 }) => {
-  const [imageSrc, setImageSrc] = useState('');
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = `${_API_URL_}${product.main_image}`;
-    img.onload = () => {
-      setImageSrc(`${_API_URL_}${product.main_image}`);
-    };
-  }, [product.main_image]);
-
   return (
     <article className={classNames(cls.ProductsListItem, {}, [className])}>
       <Link
