@@ -7,7 +7,7 @@ import {
   fetchNextProductsListPart,
   getProductsListLimit
 } from 'entity/Product';
-import { type FC, type MutableRefObject, useCallback, useEffect, useRef } from 'react';
+import { type FC, useCallback, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { DynamicModuleLoader, type TypeReducersList } from 'shared/lib/components';
 import { useInfiniteScroll, useSetTabTitle } from 'shared/lib/hooks';
@@ -36,10 +36,8 @@ const MainPage: FC = () => {
     }
   }, [dispatch, products.length, productsListLimit]);
 
-  const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-  useInfiniteScroll({
-    callback: onLoadNextPart,
-    triggerRef
+  const { triggerRef } = useInfiniteScroll<HTMLDivElement>({
+    callback: onLoadNextPart
   });
 
   return (
