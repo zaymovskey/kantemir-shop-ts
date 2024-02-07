@@ -18,7 +18,7 @@ const productsListSlice = createSlice({
     entities: {},
     error: '',
     offset: 0,
-    limit: 3,
+    limit: 8,
     hasMore: true
   }),
   reducers: {
@@ -33,7 +33,9 @@ const productsListSlice = createSlice({
       })
       .addCase(fetchProductsList.fulfilled, (state, action) => {
         state.isLoading = false;
-        productsAdapter.setAll(state, action.payload);
+        productsAdapter.addMany(state, action.payload);
+        // TODO: переделать это на бэкенд
+        state.hasMore = action.payload.length === state.limit;
       })
       .addCase(fetchProductsList.rejected, (state, action) => {
         state.isLoading = false;
@@ -42,4 +44,5 @@ const productsListSlice = createSlice({
   }
 });
 
+export const { actions: productsListActions } = productsListSlice;
 export const { reducer: productsListReducer } = productsListSlice;

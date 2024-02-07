@@ -1,14 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { type AxiosError } from 'axios';
 import { type IProduct } from 'entity/Product';
-import { type IThunkExtraArg } from 'app/providers/StoreProvider';
+import { type IThunkConfig } from 'app/providers/StoreProvider';
 import { type IAxiosError } from 'shared/api';
 import { API_METHODS } from 'shared/api/api';
 
 export const fetchProductBySlug = createAsyncThunk<
   IProduct,
   string,
-  { rejectValue: string; extra: IThunkExtraArg }
+  IThunkConfig<string>
 >(
   'productDetails/fetchProductBySlug',
   async (productSlug, { extra, rejectWithValue }) => {

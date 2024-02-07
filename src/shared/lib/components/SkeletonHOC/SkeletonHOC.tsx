@@ -10,6 +10,5 @@ export const SkeletonHOC: FC<ISkeletonHOCProps> = ({
   loading = false,
   skeleton
 }) => {
-  console.log(loading);
   return loading ? skeleton : children;
 };

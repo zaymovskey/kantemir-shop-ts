@@ -4,11 +4,16 @@ import {
   getProductsListIsLoading
 } from './model/selectors/productsList';
 import { productDetailsReducer } from './model/slices/productDetailsSlice';
-import { productsListReducer } from './model/slices/productsListSlice';
+import {
+  getProducts,
+  productsListReducer,
+  productsListActions
+} from './model/slices/productsListSlice';
 import { type IProduct } from './model/types/Product';
 import { type IProductDetailsScheme } from './model/types/ProductDetailsScheme';
 import { type IProductsListScheme } from './model/types/ProductsListScheme';
 import { ProductDetails } from './ui/ProductDetails/ProductDetails';
+import { ProductNotFound } from './ui/ProductNotFound/ProductNotFound';
 import { ProductsList } from './ui/ProductsList/ProductsList';
 import { ProductsListItem } from './ui/ProductsListItem/ProductsListItem';
 
@@ -23,5 +28,7 @@ export {
   productsListReducer,
   getProductsListIsLoading,
   getProductsListError,
-  fetchProductsList
+  fetchProductsList,
+  ProductNotFound,
+  getProducts
 };

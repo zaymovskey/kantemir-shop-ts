@@ -22,3 +22,9 @@ export interface ReduxStoreWithManager extends EnhancedStore<IStateScheme> {
 export interface IThunkExtraArg {
   api: AxiosInstance;
 }
+
+export interface IThunkConfig<T> {
+  rejectValue: T;
+  extra: IThunkExtraArg;
+  state: IStateScheme;
+}

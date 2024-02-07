@@ -1,5 +1,4 @@
-import { ProductDetails } from 'entity/Product';
-import { ProductNotFound } from 'entity/Product/ui/ProductNotFound/ProductNotFound';
+import { ProductDetails, ProductNotFound } from 'entity/Product';
 import { type FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { capitalizeFirstLetter } from 'shared/lib';

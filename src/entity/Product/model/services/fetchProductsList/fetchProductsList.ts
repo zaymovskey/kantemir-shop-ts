@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { type AxiosError } from 'axios';
-import { type IStateScheme, type IThunkExtraArg } from 'app/providers/StoreProvider';
+import { type IThunkConfig } from 'app/providers/StoreProvider';
 import { type IAxiosError } from 'shared/api';
 import { API_METHODS } from 'shared/api/api';
 import { getProductsListLimit } from '../../selectors/productsList';
@@ -13,11 +13,11 @@ interface IFetchProductsListArgs {
 export const fetchProductsList = createAsyncThunk<
   IProduct[],
   IFetchProductsListArgs,
-  { rejectValue: string; extra: IThunkExtraArg }
+  IThunkConfig<string>
 >(
   'productsList/fetchProductsList',
   async ({ offset }, { extra, rejectWithValue, getState }) => {
-    const limit = getProductsListLimit(getState() as IStateScheme);
+    const limit = getProductsListLimit(getState());
 
     try {
       const response = await extra.api.get<IProduct[]>(

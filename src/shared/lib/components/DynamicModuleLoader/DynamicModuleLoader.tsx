@@ -25,13 +25,13 @@ export const DynamicModuleLoader: FC<IDynamicModuleLoader> = ({
   const store = useStore() as ReduxStoreWithManager;
   const dispatch = useDispatch();
 
-  // @ts-ignore
-  Object.entries(reducers).forEach(([keyName, reducer]: TypeReducersListEntry) => {
-    store.reducerManager.add(keyName, reducer);
-    dispatch({ type: `@INIT ${keyName} reducer` });
-  });
-
   useEffect(() => {
+    // @ts-ignore
+    Object.entries(reducers).forEach(([keyName, reducer]: TypeReducersListEntry) => {
+      store.reducerManager.add(keyName, reducer);
+      dispatch({ type: `@INIT ${keyName} reducer` });
+    });
+
     return () => {
       if (!removeAfterUnmount) return;
 
@@ -43,5 +43,5 @@ export const DynamicModuleLoader: FC<IDynamicModuleLoader> = ({
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return <>{children}</>;
+  return children;
 };

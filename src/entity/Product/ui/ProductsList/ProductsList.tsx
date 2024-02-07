@@ -1,46 +1,33 @@
-import { ProductsListItem, fetchProductsList } from 'entity/Product';
-import { getProductsListIsLoading } from 'entity/Product/model/selectors/productsList';
-import { getProducts } from 'entity/Product/model/slices/productsListSlice';
-import { type FC, type MutableRefObject, useEffect, useRef } from 'react';
-import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
+import { type FC, type ReactNode } from 'react';
 import { classNames } from 'shared/lib';
-import { useInfiniteScroll } from 'shared/lib/hooks';
 import { Skeleton } from 'shared/ui';
+import { type IProduct } from '../../model/types/Product';
+import { ProductsListItem } from '../ProductsListItem/ProductsListItem';
 import cls from './ProductsList.module.scss';
 
 interface IProductsListProps {
   className?: string;
+  products: IProduct[];
+  productsIsLoading?: boolean;
 }
 
-export const ProductsList: FC<IProductsListProps> = ({ className }) => {
-  const dispatch = useAppDispatch();
-  const products = useAppSelector(getProducts.selectAll);
-  const productsIsLoading = Boolean(useAppSelector(getProductsListIsLoading));
+const getSkeleton = (count: number): ReactNode => {
+  return <Skeleton width={'100%'} height={400} count={count} />;
+};
 
-  useEffect(() => {
-    dispatch(fetchProductsList({}));
-  }, [dispatch]);
-
-  const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-  useInfiniteScroll({
-    callback: () => {
-      console.log('intersected');
-    },
-    triggerRef
-  });
+export const ProductsList: FC<IProductsListProps> = ({
+  className,
+  products,
+  productsIsLoading = true
+}) => {
+  const renderProduct = (product: IProduct, index: number): ReactNode => (
+    <ProductsListItem product={product} key={`productListItem_${index}`} />
+  );
 
   return (
     <div className={classNames(cls.ProductsList, {}, [className])}>
-      {productsIsLoading ? (
-        <div className={classNames(cls.ProductsList, {}, [className])}>
-          <Skeleton width={'100%'} height={400} count={8} />
-        </div>
-      ) : (
-        products?.map((product, index) => (
-          <ProductsListItem product={product} key={`productListItem_${index}`} />
-        ))
-      )}
-      <div ref={triggerRef} />
+      {products.length > 0 ? products.map(renderProduct) : null}
+      {productsIsLoading && getSkeleton(products.length >= 8 ? 4 : 8)}
     </div>
   );
 };

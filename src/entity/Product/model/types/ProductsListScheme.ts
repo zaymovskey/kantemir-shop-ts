@@ -7,6 +7,6 @@ export interface IProductsListScheme extends EntityState<IProduct, number> {
 
   // Pagination
   offset?: number;
-  limit?: number;
+  limit: number;
   hasMore: boolean;
 }

@@ -1,7 +1,21 @@
-import { ProductsList, productsListReducer } from 'entity/Product';
-import { type FC, type MutableRefObject, useRef } from 'react';
+import {
+  fetchProductsList,
+  getProductsListIsLoading,
+  ProductsList,
+  productsListReducer,
+  getProducts
+} from 'entity/Product';
+import {
+  getProductsListHasMore,
+  getProductsListLimit,
+  getProductsListOffset
+} from 'entity/Product/model/selectors/productsList';
+import { fetchNextProductsListPart } from 'entity/Product/model/services/fetchNextProductsListPart/fetchNextProductsListPart';
+import { productsListActions } from 'entity/Product/model/slices/productsListSlice';
+import { type FC, type MutableRefObject, useCallback, useEffect, useRef } from 'react';
+import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
 import { DynamicModuleLoader, type TypeReducersList } from 'shared/lib/components';
-import { useSetTabTitle, useInfiniteScroll } from 'shared/lib/hooks';
+import { useInfiniteScroll, useSetTabTitle } from 'shared/lib/hooks';
 
 const reducers: TypeReducersList = {
   productsList: productsListReducer
@@ -10,12 +24,29 @@ const reducers: TypeReducersList = {
 const MainPage: FC = () => {
   useSetTabTitle('Главная');
 
+  const dispatch = useAppDispatch();
+  const products = useAppSelector(getProducts.selectAll);
+  const productsIsLoading = Boolean(useAppSelector(getProductsListIsLoading));
+
+  useEffect(() => {
+    dispatch(fetchProductsList({}));
+  }, [dispatch]);
+
+  const onLoadNextPart = useCallback(() => {
+    dispatch(fetchNextProductsListPart());
+  }, [dispatch]);
+
+  const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+  useInfiniteScroll({
+    callback: onLoadNextPart,
+    triggerRef
+  });
+
   return (
-    <div>
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-        <ProductsList />
-      </DynamicModuleLoader>
-    </div>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+      <ProductsList products={products} productsIsLoading={productsIsLoading} />
+      <div ref={triggerRef} />
+    </DynamicModuleLoader>
   );
 };
 
