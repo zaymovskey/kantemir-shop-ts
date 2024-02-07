@@ -34,7 +34,7 @@ const productsListSlice = createSlice({
       .addCase(fetchProductsList.fulfilled, (state, action) => {
         state.isLoading = false;
         productsAdapter.addMany(state, action.payload);
-        // TODO: переделать это на бэкенд
+        // TODO: переделать это на бэкенд. Возвращать с бэка количество оставшихся товаров
         state.hasMore = action.payload.length === state.limit;
       })
       .addCase(fetchProductsList.rejected, (state, action) => {
