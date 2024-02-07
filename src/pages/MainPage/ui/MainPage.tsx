@@ -4,7 +4,8 @@ import {
   ProductsList,
   productsListReducer,
   getProducts,
-  fetchNextProductsListPart
+  fetchNextProductsListPart,
+  getProductsListLimit
 } from 'entity/Product';
 import { type FC, type MutableRefObject, useCallback, useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/StoreProvider';
@@ -20,15 +21,20 @@ const MainPage: FC = () => {
 
   const dispatch = useAppDispatch();
   const products = useAppSelector(getProducts.selectAll);
-  const productsIsLoading = Boolean(useAppSelector(getProductsListIsLoading));
+  const productsListIsLoading = Boolean(useAppSelector(getProductsListIsLoading));
+  const productsListLimit = useAppSelector(getProductsListLimit);
 
   useEffect(() => {
-    dispatch(fetchProductsList({}));
-  }, [dispatch]);
+    if (products.length === 0) {
+      dispatch(fetchProductsList({}));
+    }
+  }, [dispatch, products.length]);
 
   const onLoadNextPart = useCallback(() => {
-    dispatch(fetchNextProductsListPart());
-  }, [dispatch]);
+    if (products.length >= productsListLimit) {
+      dispatch(fetchNextProductsListPart());
+    }
+  }, [dispatch, products.length, productsListLimit]);
 
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   useInfiniteScroll({
@@ -37,8 +43,8 @@ const MainPage: FC = () => {
   });
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-      <ProductsList products={products} productsIsLoading={productsIsLoading} />
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+      <ProductsList products={products} productsIsLoading={productsListIsLoading} />
       <div ref={triggerRef} />
     </DynamicModuleLoader>
   );

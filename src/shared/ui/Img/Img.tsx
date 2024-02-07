@@ -30,7 +30,7 @@ export const Img: FC<IImageProps> = ({
   return (
     <>
       {imageSrc !== '' ? (
-        <img src={imageSrc} className={className} {...defaultImageProps} alt='' />
+        <img src={imageSrc} className={className} alt='' {...defaultImageProps} />
       ) : (
         <>{skeleton}</>
       )}

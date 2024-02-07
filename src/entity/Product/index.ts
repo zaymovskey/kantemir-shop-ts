@@ -1,6 +1,7 @@
 import {
   getProductsListError,
-  getProductsListIsLoading
+  getProductsListIsLoading,
+  getProductsListLimit
 } from './model/selectors/productsList';
 import { fetchNextProductsListPart } from './model/services/fetchNextProductsListPart/fetchNextProductsListPart';
 import { fetchProductsList } from './model/services/fetchProductsList/fetchProductsList';
@@ -28,5 +29,6 @@ export {
   fetchProductsList,
   ProductNotFound,
   getProducts,
-  fetchNextProductsListPart
+  fetchNextProductsListPart,
+  getProductsListLimit
 };
