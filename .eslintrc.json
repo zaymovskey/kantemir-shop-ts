@@ -11,20 +11,23 @@
   "root": true,
   "rules": {
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "error",
     "jsx-a11y/no-static-element-interactions": "warn",
     "jsx-a11y/click-events-have-key-events": "warn",
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/array-type": "off",
-    "@typescript-eslint/semi": [2, "always"],
-    "semi": [2, "always"],
     "@typescript-eslint/space-before-function-paren": "off",
     "@typescript-eslint/indent": "off",
-    "multiline-ternary": "off",
     "@typescript-eslint/no-misused-promises": [
       "error",
-      {"checksVoidReturn": {"attributes": false}}
+      {"checksVoidReturn": { "attributes": false }}
     ],
+    "import/no-internal-modules": "off",
+    "@typescript-eslint/non-nullable-type-assertion-style": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/prefer-ts-expect-error": "off",
+
+    "@typescript-eslint/semi": [2, "always"],
+    "semi": [2, "always"],
     "@typescript-eslint/member-delimiter-style": [
       "error",
       {
@@ -37,11 +40,6 @@
           "requireLast": false
         }
       }
-    ],
-    "import/no-internal-modules": "off",
-    "@typescript-eslint/non-nullable-type-assertion-style": "off",
-
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/prefer-ts-expect-error": "off"
+    ]
   }
 }
