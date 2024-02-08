@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { fetchProductsList } from 'entity/Product/model/services/fetchProductsList/fetchProductsList';
 import { type IStateScheme } from 'app/providers/StoreProvider';
+import { fetchProductsList } from '../services/fetchProductsList/fetchProductsList';
 import { type IProduct } from '../types/Product';
 import { type IProductsListScheme } from '../types/ProductsListScheme';
 
