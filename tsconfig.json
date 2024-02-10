@@ -19,4 +19,9 @@
     "types": ["node"],
     "strict": true
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
 }
