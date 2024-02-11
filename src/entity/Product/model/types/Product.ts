@@ -1,12 +1,12 @@
 export interface IProduct {
   id: number;
   name: string;
+  slug: string;
   price: number;
   main_image: string;
   description: string;
+  productImages: IProductImage[];
   category: IProductCategory;
-  slug: string;
-  images: IProductImage[];
   sizes: IProductSize[];
 }
 
@@ -18,11 +18,9 @@ export interface IProductCategory {
 export interface IProductImage {
   id: number;
   image: string;
-  product: number;
 }
 
 export interface IProductSize {
   id: number;
   name: string;
-  products: number[];
 }

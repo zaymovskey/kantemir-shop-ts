@@ -21,7 +21,7 @@ export const ProductImageBlock: FC<IProductImageBlockProps> = ({ className }) =>
         loading={Boolean(productIsLoading)}
         skeleton={<Skeleton count={2} width={'100%'} height={800} />}
       >
-        {product?.images.map(({ image: imagePath }, index) => (
+        {product?.productImages.map(({ image: imagePath }, index) => (
           <div key={`productPhoto_${index}`}>
             <Img
               src={`${_API_URL_}${imagePath}`}

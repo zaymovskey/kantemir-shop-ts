@@ -1,16 +1,17 @@
 import axios from 'axios';
+import { encodeQueryData } from 'shared/lib/utils';
 
 export interface IAxiosError {
   detail: string;
 }
 
 export const API_METHODS = {
-  catalog: {
+  products: {
     productDetail: (productSlug: string) =>
-      `/api/catalog/productDetail/${productSlug}/`,
+      `/api/products/productDetail/${productSlug}`,
 
     productList: (offset: number = 0, limit: number = 0) =>
-      `/api/catalog/productList/${offset}/${limit}/`
+      `/api/products/productsList?${encodeQueryData({ offset, limit })}`
   }
 };
 

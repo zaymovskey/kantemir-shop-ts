@@ -21,7 +21,7 @@ export const fetchProductsList = createAsyncThunk<
 
     try {
       const response = await extra.api.get<IProduct[]>(
-        API_METHODS.catalog.productList(offset, limit)
+        API_METHODS.products.productList(offset, limit)
       );
 
       if (response.data === null) {

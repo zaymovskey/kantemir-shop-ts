@@ -1,6 +1,5 @@
-import { capitalizeFirstLetter } from './capitalizeFirstLetter/capitalizeFirstLetter';
-import { classNames } from './classNames/classNames';
+import { capitalizeFirstLetter } from 'shared/lib/utils/capitalizeFirstLetter/capitalizeFirstLetter';
+import { classNames } from 'shared/lib/utils/classNames/classNames';
 import { SkeletonHOC } from './components/SkeletonHOC/SkeletonHOC';
-import { setTabTitle } from './setTabTitle/setTabTitle';
 
-export { classNames, SkeletonHOC, capitalizeFirstLetter, setTabTitle };
+export { classNames, SkeletonHOC, capitalizeFirstLetter };

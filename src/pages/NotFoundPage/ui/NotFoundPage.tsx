@@ -1,6 +1,6 @@
 import { type FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useSetTabTitle } from 'shared/lib/hooks';
+import { classNames } from 'shared/lib/utils/classNames/classNames';
 import cls from './NotFoundPage.module.scss';
 
 interface INotFoundPageProps {

@@ -1,6 +1,6 @@
 import { type FC } from 'react';
 import { JSX } from 'react/jsx-runtime';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from 'shared/lib/utils/classNames/classNames';
 import cls from './Text.module.scss';
 import IntrinsicElements = JSX.IntrinsicElements;
 

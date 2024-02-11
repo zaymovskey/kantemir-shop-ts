@@ -14,7 +14,7 @@ export const fetchProductBySlug = createAsyncThunk<
   async (productSlug, { extra, rejectWithValue }) => {
     try {
       const response = await extra.api.get<IProduct>(
-        API_METHODS.catalog.productDetail(productSlug)
+        API_METHODS.products.productDetail(productSlug)
       );
 
       if (response.data === null) {
